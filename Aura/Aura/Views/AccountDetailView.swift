@@ -52,6 +52,7 @@ struct AccountDetailView: View {
             // Button to see details of transactions
             Button(action: {
                 // Implement action to show transaction details
+                
             }) {
                 HStack {
                     Image(systemName: "list.bullet")
@@ -65,6 +66,13 @@ struct AccountDetailView: View {
             .padding([.horizontal, .bottom])
             
             Spacer()
+        }
+        // Appel de l'API lors de l'apparition de la vue
+        .onAppear {
+            Task {
+                await viewModel.fetchAccountDetails()
+            }
+            
         }
         .onTapGesture {
                     self.endEditing(true)  // This will dismiss the keyboard when tapping outside

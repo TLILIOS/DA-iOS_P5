@@ -8,15 +8,40 @@
 import Foundation
 
 class AccountDetailViewModel: ObservableObject {
-    @Published var totalAmount: String = "€12,345.67"
-    @Published var recentTransactions: [Transaction] = [
-        Transaction(description: "Starbucks", amount: "-€5.50"),
-        Transaction(description: "Amazon Purchase", amount: "-€34.99"),
-        Transaction(description: "Salary", amount: "+€2,500.00")
-    ]
+    @Published var totalAmount: String = ""
+    @Published var recentTransactions: [Transaction] = []
+    @Published var errorMessage: String?
+    var allTransactions: [Transaction] = []
+    private var networkService = NetworkService(token: "")
     
-    struct Transaction {
-        let description: String
-        let amount: String
+    
+    @MainActor func fetchAccountDetails()  async {
+        guard let token = KeychainService
+            .shared.getValue(for: "userToken") else {
+            self.errorMessage = "Token not found"
+            return
+        }
+        
+        // Update Network Service avec le token
+        self.networkService = NetworkService(token: token)
+        
+        let endpoint: NetworkEndPoint = .account
+        let result: Result<[Transaction], Error> = await self.networkService.fetch(endpoint: endpoint)
+        
+        switch result {
+        case .success(let transactions):
+            self.recentTransactions = transactions
+            self.allTransactions = transactions
+            
+            // Conversion et calcul du montant total
+            let totalAmount = transactions.reduce(0.0) { total, transactions in total + (Double(transactions.amount) ?? 0.0)
+            }
+            self.totalAmount = totalAmount.formatted(.currency(code: "USD"))
+            print("Succes: Fetched account details")
+        case .failure(let error):
+            self.errorMessage = error.localizedDescription
+            print("Error:\(error.localizedDescription)")
+        }
+    
     }
 }
