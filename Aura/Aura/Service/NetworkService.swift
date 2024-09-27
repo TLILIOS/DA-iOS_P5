@@ -82,7 +82,7 @@ final class NetworkService {
         print("Token being used: \(token)")
         
         // Ajout du token dans l'en-tete Authorization
-        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer\(token)", forHTTPHeaderField: "Authorization")
         // Handle parameters for non-GET requests
         if endpoint.method != .get {
             request.httpBody = try? JSONSerialization.data(withJSONObject: endpoint.parameters, options: .prettyPrinted)
