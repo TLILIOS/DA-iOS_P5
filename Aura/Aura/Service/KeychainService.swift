@@ -7,32 +7,28 @@
 import Foundation
 import Security
 
-final class KeychainService {
-
+class KeychainService {
     static let shared = KeychainService()
-    
-    private init() {}
-    
-    func save(key: String, value: String) -> OSStatus {
-        // Convertir la valeur en données
+
+    func setValue(_ value: String, for key: String) -> Bool {
         let data = value.data(using: .utf8)!
         
-        // Créer une requête pour stocker la valeur
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: key,
             kSecValueData as String: data
         ]
         
-        // Supprimer une ancienne valeur si elle existe
+        // Supprimer l'ancien objet s'il existe déjà
         SecItemDelete(query as CFDictionary)
         
-        // Ajouter la nouvelle valeur
-        return SecItemAdd(query as CFDictionary, nil)
+        // Ajouter le nouvel objet
+        let status = SecItemAdd(query as CFDictionary, nil)
+        
+        return status == errSecSuccess
     }
-    
+
     func getValue(for key: String) -> String? {
-        // Créer une requête pour récupérer la valeur
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: key,
@@ -41,23 +37,12 @@ final class KeychainService {
         ]
         
         var item: CFTypeRef?
-        
-        // Exécuter la requête
         let status = SecItemCopyMatching(query as CFDictionary, &item)
         
-        // Vérifier le statut
-        guard status == errSecSuccess, let data = item as? Data else { return nil }
+        if status == errSecSuccess, let data = item as? Data {
+            return String(data: data, encoding: .utf8)
+        }
         
-        return String(data: data, encoding: .utf8)
-    }
-    
-    func deleteValue(for key: String) -> OSStatus {
-        // Créer une requête pour supprimer la valeur
-        let query: [String: Any] = [
-            kSecClass as String: kSecClassGenericPassword,
-            kSecAttrAccount as String: key
-        ]
-        
-        return SecItemDelete(query as CFDictionary)
+        return nil
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 struct Transaction: Decodable, Identifiable {
-    let id = UUID()
+    var id = UUID()
     let description: String
     let amount: String
 }

@@ -17,11 +17,12 @@ class AccountDetailViewModel: ObservableObject {
     
     @MainActor func fetchAccountDetails()  async {
         guard let token = KeychainService
-            .shared.getValue(for: "userToken") else {
+            .shared.getValue(for: "authToken") else {
             self.errorMessage = "Token not found"
+            print("Token not found in Keychain")
             return
         }
-        
+        print("Token found in Keychain: \(token)")
         // Update Network Service avec le token
         self.networkService = NetworkService(token: token)
         
@@ -36,7 +37,7 @@ class AccountDetailViewModel: ObservableObject {
             // Conversion et calcul du montant total
             let totalAmount = transactions.reduce(0.0) { total, transactions in total + (Double(transactions.amount) ?? 0.0)
             }
-            self.totalAmount = totalAmount.formatted(.currency(code: "USD"))
+            self.totalAmount = String(format: "%.2f", totalAmount)
             print("Succes: Fetched account details")
         case .failure(let error):
             self.errorMessage = error.localizedDescription

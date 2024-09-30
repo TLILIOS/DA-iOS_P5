@@ -7,10 +7,10 @@
 
 import Foundation
 enum HTTPMethod: String {
-    case get
-    case post
-    case put
-    case delete
+    case get = "GET"
+    case post = "POST"
+    case put = "PUT"
+    case delete = "DELETE"
 }
 
 enum NetworkEndPoint {
@@ -44,6 +44,7 @@ enum NetworkError: Error, LocalizedError {
     case url
     case unknown
     case parsing
+    case unauthorized
     case server(statusCode: Int)
     
     var errorDescription: String? {
@@ -52,6 +53,8 @@ enum NetworkError: Error, LocalizedError {
         case .unknown: return "Unknown error"
         case .parsing: return "Error parsing data"
         case .server(let statusCode): return "Server error with status code \(statusCode)"
+        case .unauthorized:
+            return "Unauthorized"
         }
     }
 }
@@ -63,7 +66,7 @@ final class NetworkService {
     }
     
     private let session: URLSession
-    private let token: String //Token ajouté
+    private var token: String //Token ajouté
     
     init(session: URLSession = .shared, token: String) {
         self.session = session
@@ -77,12 +80,16 @@ final class NetworkService {
             return .failure(NetworkError.url)
         }
         var request = URLRequest(url: url)
-        request.httpMethod = endpoint.method.rawValue
-        
-        print("Token being used: \(token)")
-        
+//                !!!
+//                guard !token.isEmpty else {
+//                    print("Token is empty")
+//                    return .failure(NetworkError.unknown)
+//                }
         // Ajout du token dans l'en-tete Authorization
-        request.setValue("Bearer\(token)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.httpMethod = endpoint.method.rawValue
+    
+        
         // Handle parameters for non-GET requests
         if endpoint.method != .get {
             request.httpBody = try? JSONSerialization.data(withJSONObject: endpoint.parameters, options: .prettyPrinted)
@@ -96,6 +103,7 @@ final class NetworkService {
                 return .failure(NetworkError.unknown)
             }
             print("HTTP Response Status Code: \(httpResponse.statusCode)")
+            
             if let responseData = String(data: data, encoding: .utf8) {
                 print("Response Data: \(responseData)")
             }

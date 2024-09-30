@@ -8,3 +8,4 @@ import Foundation
 struct AuthenticationResponse: Decodable {
     let token: String
 }
+
