@@ -9,23 +9,25 @@ import SwiftUI
 
 struct AllTransactionsView: View {
     @StateObject var viewModel = AccountDetailViewModel()
+    var transaction: [Transaction]
     var body: some View {
         List(viewModel.recentTransactions) { transaction in
-                    HStack {
-                        Text(transaction.description)
-                        Spacer()
-                        Text(transaction.amount)
-                    }
-                }
-                .onAppear {
-                    Task {
-                        await viewModel.fetchAccountDetails()
-                    }
-                   
-                }
+            HStack {
+                Text(transaction.label)
+                Spacer()
+                Text(NSDecimalNumber(decimal:transaction.value).stringValue)
             }
+        }
+        .onAppear {
+            Task {
+                await viewModel.fetchAccountDetails()
+            }
+            
+        }
     }
+}
 
 #Preview {
-    AllTransactionsView()
+    AllTransactionsView(transaction: [])
 }
+

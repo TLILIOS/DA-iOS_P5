@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct AccountDetailResponse: Decodable {
+struct AccountDetailResponse: Codable {
     let transactions: [Transaction]
     let currentBalance: Double
         

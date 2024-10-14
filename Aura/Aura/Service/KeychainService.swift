@@ -9,7 +9,10 @@ import Security
 
 class KeychainService {
     static let shared = KeychainService()
-
+    
+    private init() {}
+    
+    // Stocker une valeur
     func setValue(_ value: String, for key: String) -> Bool {
         let data = value.data(using: .utf8)!
         
@@ -44,5 +47,20 @@ class KeychainService {
         }
         
         return nil
+    }
+    // Supprimer une valeur pour une cle donnee
+    func deleteValue(for key: String) -> Bool {
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrAccount as String: key
+        ]
+        
+        let status = SecItemDelete(query as CFDictionary)
+        
+        return status == errSecSuccess
+    }
+    //Verifier si une valeur existe pour une cle donnee
+    func valueExists(for key: String) -> Bool {
+        return getValue(for: key) != nil
     }
 }

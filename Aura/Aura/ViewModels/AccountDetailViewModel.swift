@@ -27,22 +27,22 @@ class AccountDetailViewModel: ObservableObject {
         self.networkService = NetworkService(token: token)
         
         let endpoint: NetworkEndPoint = .account
-        let result: Result<[Transaction], Error> = await self.networkService.fetch(endpoint: endpoint)
+        let result: Result<AccountDetailResponse, Error> = await self.networkService.fetch(endpoint: endpoint)
         
         switch result {
-        case .success(let transactions):
-            self.recentTransactions = transactions
-            self.allTransactions = transactions
+        case .success(let accountDetailResponse):
+            self.recentTransactions = accountDetailResponse.transactions
+            self.allTransactions = accountDetailResponse.transactions
             
             // Conversion et calcul du montant total
-            let totalAmount = transactions.reduce(0.0) { total, transactions in total + (Double(transactions.amount) ?? 0.0)
+            let totalAmount = accountDetailResponse.transactions.reduce(Decimal(0.0)) { total, transactions in (total + transactions.value)
             }
-            self.totalAmount = String(format: "%.2f", totalAmount)
+            self.totalAmount = NSDecimalNumber(decimal: totalAmount).stringValue
             print("Succes: Fetched account details")
         case .failure(let error):
             self.errorMessage = error.localizedDescription
             print("Error:\(error.localizedDescription)")
         }
-    
+        
     }
 }

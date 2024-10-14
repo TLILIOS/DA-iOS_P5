@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct AuraApp: App {
     @StateObject var viewModel = AppViewModel()
+   
     
     var body: some Scene {
         WindowGroup {
@@ -22,20 +23,22 @@ struct AuraApp: App {
                                 Text("Account")
                             }
                         
-                        MoneyTransferView()
+                        MoneyTransferView(viewModel: viewModel.moneyTransferViewModel)
                             .tabItem {
                                 Image(systemName: "arrow.right.arrow.left.circle")
                                 Text("Transfer")
                             }
                     }
+                    // Mettre à jour le token après l'authentification
+                    
                     
                 } else {
                     AuthenticationView(viewModel: viewModel.authenticationViewModel)
                         .transition(.asymmetric(insertion: .move(edge: .trailing).combined(with: .opacity),
                                                 removal: .move(edge: .top).combined(with: .opacity)))
-                    
                 }
             }
+            
             .accentColor(Color(hex: "#94A684"))
             .animation(.easeInOut(duration: 0.5), value: UUID())
         }
