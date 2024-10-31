@@ -15,10 +15,11 @@ class AuthenticationViewModel: ObservableObject {
     let onLoginSucceed: (() -> ())
     
     //Initializing without a token for the login process
-    private var networkService = NetworkService(token: "")
+    private var networkService: NetworkService
     
-    init(_ callback: @escaping () -> ()) {
+    init(_ callback: @escaping () -> (), networkService: NetworkService = NetworkService()) {
         self.onLoginSucceed = callback
+        self.networkService = networkService
     }
     //Verification de la validité de l'email
     func isValidEmail(_ email: String) -> Bool {
@@ -49,8 +50,6 @@ class AuthenticationViewModel: ObservableObject {
                     return
                 }
                 
-                // Update network service with new token for future requests
-                self.networkService = NetworkService(token: response.token)
                 
                 print("Login successful with token:\(response.token)")
                 onLoginSucceed() // Exécute le callback de succès
@@ -86,7 +85,7 @@ class AuthenticationViewModel: ObservableObject {
         let result: Result<AuthenticationResponse, Error> = await self.networkService.fetch(endpoint: .auth(username: username, password: password))
         switch result {
         case .success(let response):
-            return .success(response) // Assurez-vous que cela renvoie l'objet décodé
+            return .success(response) // renvoie de l'objet décodé
         case .failure(let error):
             return .failure(error)
         }

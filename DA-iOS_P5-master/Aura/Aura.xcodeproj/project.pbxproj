@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,19 +19,21 @@
 		53D4189D2AC715AA0070ADB1 /* AccountDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D4189C2AC715AA0070ADB1 /* AccountDetailViewModel.swift */; };
 		53D4189F2AC717890070ADB1 /* MoneyTransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D4189E2AC717890070ADB1 /* MoneyTransferViewModel.swift */; };
 		53D418A12AC71B8F0070ADB1 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D418A02AC71B8F0070ADB1 /* View+Extensions.swift */; };
-		D034D0FA2CA4F9C900C2DFA3 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D034D0F92CA4F9C900C2DFA3 /* KeychainService.swift */; };
-		D034D0FC2CA5021600C2DFA3 /* AccountDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D034D0FB2CA5021600C2DFA3 /* AccountDetailResponse.swift */; };
-		D034D1062CAE9D3E00C2DFA3 /* RecentTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D034D1052CAE9D3E00C2DFA3 /* RecentTransactionsView.swift */; };
-		D034D1082CAE9E2100C2DFA3 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D034D1072CAE9E2100C2DFA3 /* HeaderView.swift */; };
-		D034D10C2CB2F9EE00C2DFA3 /* EmptyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D034D10B2CB2F9EE00C2DFA3 /* EmptyResponse.swift */; };
-		D0727B442CA47C7D00D925DF /* Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0727B432CA47C7D00D925DF /* Transactions.swift */; };
-		D09DF5772C935ABC005C115A /* AllTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09DF5762C935ABC005C115A /* AllTransactionsView.swift */; };
-		D0C6E79D2C9D637F00FC885C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C6E79C2C9D636F00FC885C /* NetworkService.swift */; };
-		D0C6E79F2C9D7E0C00FC885C /* AuthenticationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C6E79E2C9D7DF100FC885C /* AuthenticationResponse.swift */; };
+		D05FA6702CCB774500BAD2BD /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05FA66F2CCB774500BAD2BD /* NetworkService.swift */; };
+		D05FA6722CCB776600BAD2BD /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05FA6712CCB776600BAD2BD /* KeychainService.swift */; };
+		D05FA6742CCB788400BAD2BD /* AllTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05FA6732CCB788400BAD2BD /* AllTransactionsView.swift */; };
+		D05FA6762CCB78A100BAD2BD /* RecentTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05FA6752CCB78A100BAD2BD /* RecentTransactionsView.swift */; };
+		D05FA6782CCB78BB00BAD2BD /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05FA6772CCB78BB00BAD2BD /* HeaderView.swift */; };
+		D05FA6AA2CCB7D5D00BAD2BD /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05FA6A72CCB7D5D00BAD2BD /* MockNetworkService.swift */; };
+		D05FA6B02CCB7EB000BAD2BD /* EmptyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05FA6AE2CCB7EB000BAD2BD /* EmptyResponse.swift */; };
+		D05FA6B12CCB7EB000BAD2BD /* AuthenticationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05FA6AD2CCB7EB000BAD2BD /* AuthenticationResponse.swift */; };
+		D05FA6B22CCB7EB000BAD2BD /* AccountDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05FA6AC2CCB7EB000BAD2BD /* AccountDetailResponse.swift */; };
+		D05FA6B32CCB7EB000BAD2BD /* Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05FA6AF2CCB7EB000BAD2BD /* Transactions.swift */; };
+		D05FA6B72CCE8EAD00BAD2BD /* MockKeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05FA6B62CCE8EAD00BAD2BD /* MockKeychainService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D05FA65B2CCB6C3300BAD2BD /* PBXContainerItemProxy */ = {
+		D05FA68E2CCB7ADB00BAD2BD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 53D418702AC7099A0070ADB1 /* Project object */;
 			proxyType = 1;
@@ -54,17 +56,23 @@
 		53D4189C2AC715AA0070ADB1 /* AccountDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailViewModel.swift; sourceTree = "<group>"; };
 		53D4189E2AC717890070ADB1 /* MoneyTransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTransferViewModel.swift; sourceTree = "<group>"; };
 		53D418A02AC71B8F0070ADB1 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
-		D034D0F92CA4F9C900C2DFA3 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
-		D034D0FB2CA5021600C2DFA3 /* AccountDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailResponse.swift; sourceTree = "<group>"; };
-		D034D1052CAE9D3E00C2DFA3 /* RecentTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransactionsView.swift; sourceTree = "<group>"; };
-		D034D1072CAE9E2100C2DFA3 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		D034D10B2CB2F9EE00C2DFA3 /* EmptyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResponse.swift; sourceTree = "<group>"; };
-		D05FA6572CCB6C3300BAD2BD /* AuraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D0727B432CA47C7D00D925DF /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
-		D09DF5762C935ABC005C115A /* AllTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTransactionsView.swift; sourceTree = "<group>"; };
-		D0C6E79C2C9D636F00FC885C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		D0C6E79E2C9D7DF100FC885C /* AuthenticationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationResponse.swift; sourceTree = "<group>"; };
+		D05FA66F2CCB774500BAD2BD /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		D05FA6712CCB776600BAD2BD /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		D05FA6732CCB788400BAD2BD /* AllTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTransactionsView.swift; sourceTree = "<group>"; };
+		D05FA6752CCB78A100BAD2BD /* RecentTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransactionsView.swift; sourceTree = "<group>"; };
+		D05FA6772CCB78BB00BAD2BD /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		D05FA68A2CCB7ADB00BAD2BD /* AuraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D05FA6A72CCB7D5D00BAD2BD /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
+		D05FA6AC2CCB7EB000BAD2BD /* AccountDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailResponse.swift; sourceTree = "<group>"; };
+		D05FA6AD2CCB7EB000BAD2BD /* AuthenticationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationResponse.swift; sourceTree = "<group>"; };
+		D05FA6AE2CCB7EB000BAD2BD /* EmptyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResponse.swift; sourceTree = "<group>"; };
+		D05FA6AF2CCB7EB000BAD2BD /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
+		D05FA6B62CCE8EAD00BAD2BD /* MockKeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockKeychainService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		D05FA68B2CCB7ADB00BAD2BD /* AuraTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AuraTests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		53D418752AC7099A0070ADB1 /* Frameworks */ = {
@@ -74,7 +82,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D05FA6542CCB6C3300BAD2BD /* Frameworks */ = {
+		D05FA6872CCB7ADB00BAD2BD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -88,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				53D4187A2AC7099A0070ADB1 /* Aura */,
+				D05FA68B2CCB7ADB00BAD2BD /* AuraTests */,
 				53D418792AC7099A0070ADB1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,7 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				53D418782AC7099A0070ADB1 /* Aura.app */,
-				D05FA6572CCB6C3300BAD2BD /* AuraTests.xctest */,
+				D05FA68A2CCB7ADB00BAD2BD /* AuraTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,11 +113,11 @@
 		53D4187A2AC7099A0070ADB1 /* Aura */ = {
 			isa = PBXGroup;
 			children = (
+				D05FA6AB2CCB7DFA00BAD2BD /* Model */,
 				53D418962AC70FC50070ADB1 /* Utils */,
-				53D4188B2AC709B80070ADB1 /* Models */,
 				53D4188A2AC709B30070ADB1 /* ViewModels */,
+				D05FA66E2CCB771B00BAD2BD /* Service */,
 				53D418892AC709AD0070ADB1 /* Views */,
-				D0C6E79A2C9D62CC00FC885C /* Service */,
 				53D4187B2AC7099A0070ADB1 /* AuraApp.swift */,
 				53D4187F2AC7099B0070ADB1 /* Assets.xcassets */,
 				53D418812AC7099B0070ADB1 /* Preview Content */,
@@ -128,11 +137,11 @@
 			isa = PBXGroup;
 			children = (
 				53D418902AC70A920070ADB1 /* AuthenticationView.swift */,
+				D05FA6772CCB78BB00BAD2BD /* HeaderView.swift */,
+				D05FA6752CCB78A100BAD2BD /* RecentTransactionsView.swift */,
+				D05FA6732CCB788400BAD2BD /* AllTransactionsView.swift */,
 				53D418922AC70AB10070ADB1 /* AccountDetailView.swift */,
 				53D418942AC70ABF0070ADB1 /* MoneyTransferView.swift */,
-				D09DF5762C935ABC005C115A /* AllTransactionsView.swift */,
-				D034D1052CAE9D3E00C2DFA3 /* RecentTransactionsView.swift */,
-				D034D1072CAE9E2100C2DFA3 /* HeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -148,17 +157,6 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		53D4188B2AC709B80070ADB1 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				D0C6E79E2C9D7DF100FC885C /* AuthenticationResponse.swift */,
-				D0727B432CA47C7D00D925DF /* Transactions.swift */,
-				D034D0FB2CA5021600C2DFA3 /* AccountDetailResponse.swift */,
-				D034D10B2CB2F9EE00C2DFA3 /* EmptyResponse.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		53D418962AC70FC50070ADB1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,13 +166,26 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		D0C6E79A2C9D62CC00FC885C /* Service */ = {
+		D05FA66E2CCB771B00BAD2BD /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				D0C6E79C2C9D636F00FC885C /* NetworkService.swift */,
-				D034D0F92CA4F9C900C2DFA3 /* KeychainService.swift */,
+				D05FA66F2CCB774500BAD2BD /* NetworkService.swift */,
+				D05FA6A72CCB7D5D00BAD2BD /* MockNetworkService.swift */,
+				D05FA6712CCB776600BAD2BD /* KeychainService.swift */,
+				D05FA6B62CCE8EAD00BAD2BD /* MockKeychainService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		D05FA6AB2CCB7DFA00BAD2BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D05FA6AC2CCB7EB000BAD2BD /* AccountDetailResponse.swift */,
+				D05FA6AD2CCB7EB000BAD2BD /* AuthenticationResponse.swift */,
+				D05FA6AE2CCB7EB000BAD2BD /* EmptyResponse.swift */,
+				D05FA6AF2CCB7EB000BAD2BD /* Transactions.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,24 +208,27 @@
 			productReference = 53D418782AC7099A0070ADB1 /* Aura.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D05FA6562CCB6C3300BAD2BD /* AuraTests */ = {
+		D05FA6892CCB7ADB00BAD2BD /* AuraTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D05FA65D2CCB6C3300BAD2BD /* Build configuration list for PBXNativeTarget "AuraTests" */;
+			buildConfigurationList = D05FA6902CCB7ADB00BAD2BD /* Build configuration list for PBXNativeTarget "AuraTests" */;
 			buildPhases = (
-				D05FA6532CCB6C3300BAD2BD /* Sources */,
-				D05FA6542CCB6C3300BAD2BD /* Frameworks */,
-				D05FA6552CCB6C3300BAD2BD /* Resources */,
+				D05FA6862CCB7ADB00BAD2BD /* Sources */,
+				D05FA6872CCB7ADB00BAD2BD /* Frameworks */,
+				D05FA6882CCB7ADB00BAD2BD /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D05FA65C2CCB6C3300BAD2BD /* PBXTargetDependency */,
+				D05FA68F2CCB7ADB00BAD2BD /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D05FA68B2CCB7ADB00BAD2BD /* AuraTests */,
 			);
 			name = AuraTests;
 			packageProductDependencies = (
 			);
 			productName = AuraTests;
-			productReference = D05FA6572CCB6C3300BAD2BD /* AuraTests.xctest */;
+			productReference = D05FA68A2CCB7ADB00BAD2BD /* AuraTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -230,7 +244,7 @@
 					53D418772AC7099A0070ADB1 = {
 						CreatedOnToolsVersion = 15.0;
 					};
-					D05FA6562CCB6C3300BAD2BD = {
+					D05FA6892CCB7ADB00BAD2BD = {
 						CreatedOnToolsVersion = 16.0;
 						TestTargetID = 53D418772AC7099A0070ADB1;
 					};
@@ -250,7 +264,7 @@
 			projectRoot = "";
 			targets = (
 				53D418772AC7099A0070ADB1 /* Aura */,
-				D05FA6562CCB6C3300BAD2BD /* AuraTests */,
+				D05FA6892CCB7ADB00BAD2BD /* AuraTests */,
 			);
 		};
 /* End PBXProject section */
@@ -265,7 +279,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D05FA6552CCB6C3300BAD2BD /* Resources */ = {
+		D05FA6882CCB7ADB00BAD2BD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -279,42 +293,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D034D10C2CB2F9EE00C2DFA3 /* EmptyResponse.swift in Sources */,
+				D05FA6762CCB78A100BAD2BD /* RecentTransactionsView.swift in Sources */,
 				53D4187C2AC7099A0070ADB1 /* AuraApp.swift in Sources */,
-				D034D1082CAE9E2100C2DFA3 /* HeaderView.swift in Sources */,
-				D0C6E79D2C9D637F00FC885C /* NetworkService.swift in Sources */,
-				D0727B442CA47C7D00D925DF /* Transactions.swift in Sources */,
 				53D418952AC70ABF0070ADB1 /* MoneyTransferView.swift in Sources */,
+				D05FA6B72CCE8EAD00BAD2BD /* MockKeychainService.swift in Sources */,
 				53D4189B2AC711990070ADB1 /* AuthenticationViewModel.swift in Sources */,
-				D034D0FC2CA5021600C2DFA3 /* AccountDetailResponse.swift in Sources */,
 				53D4189D2AC715AA0070ADB1 /* AccountDetailViewModel.swift in Sources */,
 				53D418912AC70A920070ADB1 /* AuthenticationView.swift in Sources */,
+				D05FA6782CCB78BB00BAD2BD /* HeaderView.swift in Sources */,
 				53D418932AC70AB10070ADB1 /* AccountDetailView.swift in Sources */,
-				D034D0FA2CA4F9C900C2DFA3 /* KeychainService.swift in Sources */,
+				D05FA6742CCB788400BAD2BD /* AllTransactionsView.swift in Sources */,
 				53D4189F2AC717890070ADB1 /* MoneyTransferViewModel.swift in Sources */,
-				D034D1062CAE9D3E00C2DFA3 /* RecentTransactionsView.swift in Sources */,
 				53D4188D2AC709F40070ADB1 /* AppViewModel.swift in Sources */,
-				D09DF5772C935ABC005C115A /* AllTransactionsView.swift in Sources */,
+				D05FA6B02CCB7EB000BAD2BD /* EmptyResponse.swift in Sources */,
+				D05FA6B12CCB7EB000BAD2BD /* AuthenticationResponse.swift in Sources */,
+				D05FA6B22CCB7EB000BAD2BD /* AccountDetailResponse.swift in Sources */,
+				D05FA6B32CCB7EB000BAD2BD /* Transactions.swift in Sources */,
+				D05FA6702CCB774500BAD2BD /* NetworkService.swift in Sources */,
 				53D418A12AC71B8F0070ADB1 /* View+Extensions.swift in Sources */,
+				D05FA6722CCB776600BAD2BD /* KeychainService.swift in Sources */,
 				53D418992AC70FD80070ADB1 /* Color+Extensions.swift in Sources */,
-				D0C6E79F2C9D7E0C00FC885C /* AuthenticationResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D05FA6532CCB6C3300BAD2BD /* Sources */ = {
+		D05FA6862CCB7ADB00BAD2BD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D05FA6AA2CCB7D5D00BAD2BD /* MockNetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D05FA65C2CCB6C3300BAD2BD /* PBXTargetDependency */ = {
+		D05FA68F2CCB7ADB00BAD2BD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 53D418772AC7099A0070ADB1 /* Aura */;
-			targetProxy = D05FA65B2CCB6C3300BAD2BD /* PBXContainerItemProxy */;
+			targetProxy = D05FA68E2CCB7ADB00BAD2BD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -494,7 +510,7 @@
 			};
 			name = Release;
 		};
-		D05FA65E2CCB6C3300BAD2BD /* Debug */ = {
+		D05FA6912CCB7ADB00BAD2BD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,7 +528,7 @@
 			};
 			name = Debug;
 		};
-		D05FA65F2CCB6C3300BAD2BD /* Release */ = {
+		D05FA6922CCB7ADB00BAD2BD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -551,11 +567,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D05FA65D2CCB6C3300BAD2BD /* Build configuration list for PBXNativeTarget "AuraTests" */ = {
+		D05FA6902CCB7ADB00BAD2BD /* Build configuration list for PBXNativeTarget "AuraTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D05FA65E2CCB6C3300BAD2BD /* Debug */,
-				D05FA65F2CCB6C3300BAD2BD /* Release */,
+				D05FA6912CCB7ADB00BAD2BD /* Debug */,
+				D05FA6922CCB7ADB00BAD2BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

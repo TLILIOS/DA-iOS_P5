@@ -12,8 +12,11 @@ class AccountDetailViewModel: ObservableObject {
     @Published var recentTransactions: [Transaction] = []
     @Published var errorMessage: String?
     var allTransactions: [Transaction] = []
-    private var networkService = NetworkService()
+    var networkService: NetworkService
     
+    init(networkService: NetworkService = NetworkService()) {
+        self.networkService = networkService
+    }
     
     @MainActor func fetchAccountDetails()  async {
         let endpoint: NetworkEndPoint = .account

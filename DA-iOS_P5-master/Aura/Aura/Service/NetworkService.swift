@@ -68,7 +68,7 @@ enum NetworkError: Error, LocalizedError {
     }
 }
 
-final class NetworkService {
+class NetworkService {
     
     @Published var errorMessage: String?
     private enum Constant {
@@ -84,6 +84,7 @@ final class NetworkService {
    
     
     func fetch<T:Decodable>(endpoint: NetworkEndPoint) async -> Result<T, Error> {
+        // Construction de l'URL
         guard let url = URL(string: Constant.urlString + endpoint.path) else {
             return .failure(NetworkError.url)
         }
@@ -100,7 +101,7 @@ final class NetworkService {
         }
         
         
-        // Handle parameters for non-GET requests
+    // Gestion des paramètres pour les requêtes non-GET
         if endpoint.method != .get {
             if let httpBody = try? JSONSerialization.data(withJSONObject: endpoint.parameters, options: .prettyPrinted) {
                 request.httpBody = httpBody
