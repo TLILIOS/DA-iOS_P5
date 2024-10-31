@@ -70,9 +70,11 @@ class AuthenticationViewModel: ObservableObject {
                 }
             
             case .failure(let error):
-                errorMessage = "Login failed: \(error.localizedDescription)"
-                print(errorMessage ?? "Login failed: \(error.localizedDescription)")
-                
+                if let networkError = error as? NetworkError {
+                                errorMessage = "Login failed: \(networkError.localizedDescription)"
+                            } else {
+                                errorMessage = "Login failed: \(error.localizedDescription)"
+                            }
             }
         }
         

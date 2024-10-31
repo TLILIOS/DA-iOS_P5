@@ -20,7 +20,7 @@ final class AccountDetailViewModelTests: XCTestCase {
         mockNetworkService = MockNetworkService()
         // Injection du service simulé
         viewModel = AccountDetailViewModel(networkService: mockNetworkService)
-
+        
     }
     
     override func tearDown() {
