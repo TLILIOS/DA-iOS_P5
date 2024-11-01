@@ -1,3 +1,7 @@
+//AuraTests
+//
+//  Created by TLILI HAMDI on 25/10/2024.
+
 import XCTest
 @testable import Aura
 
@@ -29,7 +33,7 @@ final class MoneyTransferViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.amount, Decimal(1000), "La valeur de `amount` devrait être mise à jour à 1000")
     }
     func testSendMoneyWithValidRecipient() async {
-        // Définissez une réponse de transfert simulée pour un test sans erreur
+        // Définition d'une réponse de transfert simulée pour un test sans erreur
         mockNetworkService.mockTransactionResponse = EmptyResponse()
         
         // Définir un destinataire valide et un montant
@@ -44,8 +48,8 @@ final class MoneyTransferViewModelTests: XCTestCase {
     }
     // Test: Vérifier le succès de l'envoi d'argent
     func testSendMoneySuccess() async {
-        let mockResponse = EmptyResponse() // Assurez-vous que ce type de réponse est défini dans votre modèle
-        mockNetworkService.mockTransactionResponse = mockResponse // Définissez la réponse simulée pour le transfert
+        let mockResponse = EmptyResponse()
+        mockNetworkService.mockTransactionResponse = mockResponse // réponse simulée pour le transfert
         viewModel.recipient = "test@example.com"
         viewModel.amount = 100
         
@@ -66,14 +70,14 @@ final class MoneyTransferViewModelTests: XCTestCase {
     
     // Test: Vérifier la gestion de l'erreur lors de l'envoi d'argent
     func testSendMoneyFailure() async {
-        mockNetworkService.shouldReturnError = true // Configurez le mock pour simuler une erreur
+        mockNetworkService.shouldReturnError = true // Configurer le mock pour simuler une erreur
         viewModel.recipient = "test@example.com"
         viewModel.amount = 100
         
         await viewModel.sendMoney()
         
         XCTAssertNotNil(viewModel.errorMessage)
-        XCTAssertEqual(viewModel.errorMessage, "Unauthorized access.") // Ajustez le message d'erreur selon votre logique
+        XCTAssertEqual(viewModel.errorMessage, "Unauthorized access.") 
         XCTAssertNil(viewModel.transferMessage)
     }
 }
